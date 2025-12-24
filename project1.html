@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project1</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #bbb6b6;
+            padding: 10px;
+        }
+
+        .navbar span {
+            color: black;
+            background-color: #7b7878;
+            padding: 14px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 0px 100px;
+        }
+
+        .navbar span:hover {
+            background-color: #8e8a8a;
+            color: black;
+        }
+
+        .color {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        main {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .grey {
+            background-color: grey;
+        }
+
+        .white {
+            background-color: white;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .yellow {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <span type="button">Home</span>
+        <span type="button">Youtube channel</span>
+    </nav>
+    <main>
+        <h2>Color Scheme Switcher</h2>
+        <button class="color grey"></button>
+        <button class="color white"></button>
+        <button class="color blue"></button>
+        <button class="color yellow"></button>
+        <h3>Try clicking on one of the colors above</h3>
+        <h3>to change the background color of this page!</h3>
+    </main>
+    <script>
+        document.querySelectorAll('.color').forEach((item) => {
+            item.addEventListener('click', (e) => {
+                document.body.style.backgroundColor = item.classList[1];
+                // OR
+                // document.body.style.backgroundColor = e.target.classList[1];
+            });
+        })
+    </script>
+</body>
+
+</html>

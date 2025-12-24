@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project2</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #bbb6b6;
+            padding: 10px;
+        }
+
+        .navbar span {
+            color: black;
+            background-color: #7b7878;
+            padding: 14px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 0px 100px;
+        }
+
+        .navbar span:hover {
+            background-color: #8e8a8a;
+            color: black;
+        }
+
+        main {
+            background-color: grey;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .calculate {
+            border-radius: 6px;
+        }
+
+        ul {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <span type="button">Home</span>
+        <span type="button">Youtube channel </span>
+    </nav>
+    <main>
+        <h1>BMI Calculator</h1>
+        <form>
+            <label>Height (in m): </label>
+            <input type="number" id="height" name="height" step="0.01"><br><br>
+            <label>Weight (in kg): </label>
+            <input type="number" id="weight" name="weight"><br><br>
+            <button class="calculate"> Calculate</button>
+        </form>
+        <div class="result"></div>
+        <h3>BMI Weight Guide</h3>
+        <ul>
+            <li>Underweight: &nbsp;&nbsp;&nbsp;&nbsp; BMI less than 18.5</li>
+            <li>Normal weight: &nbsp;&nbsp;&nbsp;&nbsp; BMI 18.5–24.9</li>
+            <li>Overweight: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; BMI 25–29.9</li>
+            <li>Obesity: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; BMI 30 or greater</li>
+        </ul>
+
+
+    </main>
+    <script>
+        document.querySelector('.calculate').addEventListener('click', (e) => {
+            e.preventDefault();
+            const result = (document.getElementById('weight').value / ((document.getElementById('height').value) * (document.getElementById('height').value))).toFixed(2);
+
+            // document.querySelector('.result').innerHTML = `Your BMI is ${result} (${result < 18.5 ? 'Underweight' : result < 24.9 ? 'Normal weight' : result < 29.9 ? 'Overweight' : 'Obesity'})`;
+            if (result < 18.5) {
+                document.querySelector('.result').innerHTML = `Your BMI is ${result} (Underweight)`;
+            } else if (result < 24.9) {
+                document.querySelector('.result').innerHTML = `Your BMI is ${result} (Normal weight)`;
+            } else if (result < 29.9) {
+                document.querySelector('.result').innerHTML = `Your BMI is ${result} (Overweight)`;
+            } else {
+                document.querySelector('.result').innerHTML = `Your BMI is ${result} (Obesity)`;
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
