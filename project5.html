@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project3</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #bbb6b6;
+            padding: 10px;
+        }
+
+        .navbar span {
+            color: black;
+            background-color: #7b7878;
+            padding: 14px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 0px 100px;
+        }
+
+        .navbar span:hover {
+            background-color: #8e8a8a;
+            color: black;
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            background-color: rgb(38, 37, 37);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            height: 550px;
+
+
+        }
+        #keydown{
+            font-size: 100px;
+        }
+ 
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <span type="button">Home</span>
+        <span type="button">Youtube channel</span>
+    </nav>
+    <main>
+       <div class="key">Press the key and watch magic</div>
+   </main>
+    <script>
+        window.addEventListener('keydown',(e)=>{
+            document.querySelector('.key').innerHTML= `<div id='keydown'>${e.key===' '?"Space":e.key}</div>`; //e.keycode, e.code also there
+        })
+
+    </script>
+</body>
+
+</html>

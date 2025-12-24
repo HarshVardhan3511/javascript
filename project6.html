@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Project6</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            background-color: #bbb6b6;
+            padding: 10px;
+        }
+
+        .navbar span {
+            color: black;
+            background-color: #7b7878;
+            padding: 14px 20px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid black;
+            border-radius: 6px;
+            margin: 0px 100px;
+        }
+
+        .navbar span:hover {
+            background-color: #8e8a8a;
+            color: black;
+        }
+        main {
+            margin-top: 10px;
+            background-color: rgb(27, 26, 26);
+            color: white;
+            padding: 20px;
+            border-radius: 6px;
+            height: 550px;
+        }
+        button{
+            border-radius: 6px;
+            padding: 0px 10px;
+            font-size: large;
+        }
+      
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <span type="button">Home</span>
+        <span type="button">Youtube channel</span>
+    </nav>
+    <main>
+<h1>Start should change the Background color every second</h1>
+<button id="start">Start</button>
+<button id="stop">Stop</button>
+   </main>
+    <script>
+        let colorchanger;
+        document.getElementById('start').addEventListener('click',()=>{
+            if (colorchanger===NULL){         //optimisation to prevent multiple intervals 
+ 
+                colorchanger=setInterval(()=>{
+                    const arr=['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
+                    let color='#';
+                    for (let i=0;i<6;i++){
+                        color+=arr[parseInt(Math.random()*16)];
+                    }
+                    document.body.style.backgroundColor=color;
+                },1000);
+            }
+            
+        })
+        document.getElementById('stop').addEventListener('click',()=>{
+            clearInterval(colorchanger);
+            colorchanger=null;
+        })
+    </script>
+</body>
+
+</html>
