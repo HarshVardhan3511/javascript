@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>XHR Assignment</title>
+    <style>
+        body{
+            background-color: #212121;
+            text-align: center;
+        }
+        button.fetchdata{
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 100px;
+            
+        }
+        button.fetchdata:hover{
+            background-color: #555252;
+            color: white;
+        }
+        div.card{
+            border: 2px solid rgb(143, 126, 126);
+            width: 300px;
+            padding: 10px;
+            margin-top: 20px;
+            color: rgb(43, 41, 41);
+            background-color: #9f9c9c;
+            border-radius: 8px;
+            text-align: center;
+            margin: auto ;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+
+    </style>
+</head>
+<body>
+    <button class="fetchdata">Fetch data</button>
+    <div class="card">
+        <img src="https://imgs.search.brave.com/wE1-b8ltCYbfQ4xSFlHHIAPUCzF3wAKKtPZ-7Od_kEc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1wc2Qv/dXNlci1pY2VtYXR0/ZV8xNjE2NjktMjEx/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDAmcT04MA" alt="userphoto">
+        <h2 class="name">Name: <span class="name">User_name</span></h2>
+        <h3>Followers: <span class="followers">User_followers</span></h3>
+    </div>
+    
+</body>
+<script>
+    document.querySelector('.fetchdata').addEventListener('click',()=>{
+        xhr= new XMLHttpRequest();
+        xhr.open('GET','https://api.github.com/users/hiteshchoudhary')
+        xhr.onreadystatechange = function(){
+            if (xhr.readyState ===4){
+                const data= JSON.parse(this.responseText);
+                console.log(data);
+                document.querySelector('img').src= data.avatar_url;
+                document.querySelector('.name').innerText= data.name;
+                document.querySelector('.followers').innerText= data.followers;
+
+            }
+        }
+        xhr.send();
+    })
+</script>
+</html>
